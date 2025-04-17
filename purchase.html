@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <title>Processando compra...</title>
 
-  <!-- Script principal da UTMFY -->
   <script
     src="https://cdn.utmify.com.br/scripts/utms/latest.js"
     data-utmify-prevent-xcod-sck
@@ -13,7 +12,6 @@
     defer
   ></script>
 
-  <!-- Pixel com ID da UTMFY -->
   <script>
     window.pixelId = "67e5d32049c66110114aa453";
     var a = document.createElement("script");
@@ -22,21 +20,23 @@
     a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
     document.head.appendChild(a);
 
-    // Dispara o evento 'Purchase' após o pixel carregar
     window.addEventListener("load", function () {
-      setTimeout(function () {
-        if (window.utmifyPixel) {
+      // Espera o pixel da UTMIFY estar disponível antes de disparar o evento
+      var checkPixel = setInterval(function () {
+        if (typeof window.utmifyPixel === "function") {
           window.utmifyPixel('event', 'Purchase');
+          clearInterval(checkPixel);
         }
-      }, 300); // dispara o evento 0.3s depois do carregamento
+      }, 200); // tenta a cada 200ms
 
       // Redireciona após 60 segundos
       setTimeout(function () {
         window.location.href = "https://SEU-CONTEUDO.com/acesso";
-      }, 60000); // 60 segundos = 60000 milissegundos
+      }, 60000);
     });
   </script>
 </head>
 <body>
+  <p>Processando sua compra... aguarde 60 segundos.</p>
 </body>
 </html>
