@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8" />
   <title>Processando compra...</title>
-  <meta http-equiv="refresh" content="1;URL=https://SEU-CONTEUDO.com/acesso" />
 
   <!-- Script principal da UTMFY -->
   <script
@@ -23,16 +22,20 @@
     a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
     document.head.appendChild(a);
 
-    // Aguarda o carregamento do pixel e dispara o evento Purchase
+    // Dispara o evento 'Purchase' após o pixel carregar
     window.addEventListener("load", function () {
       setTimeout(function () {
         if (window.utmifyPixel) {
           window.utmifyPixel('event', 'Purchase');
         }
-      }, 33333333333333333333300); // pequeno delay para garantir o carregamento
+      }, 300); // dispara o evento 0.3s depois do carregamento
+
+      // Redireciona após 60 segundos
+      setTimeout(function () {
+        window.location.href = "https://SEU-CONTEUDO.com/acesso";
+      }, 60000); // 60 segundos = 60000 milissegundos
     });
   </script>
-
 </head>
 <body>
 </body>
