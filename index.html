@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8" />
   <title>Redirecionando...</title>
-  <meta http-equiv="refresh" content="1;URL=https://t.me/DarkP4odinhoBot" />
 
   <!-- Script principal da UTMFY -->
   <script
@@ -22,9 +21,16 @@
     a.setAttribute("defer", "");
     a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
     document.head.appendChild(a);
+
+    // Redireciona após 60 segundos
+    setTimeout(function () {
+      window.location.href = "https://t.me/DarkP4odinhoBot";
+    }, 60000); // 60.000 ms = 60 segundos
   </script>
 
 </head>
 <body>
+  <p>Aguarde... você será redirecionado em 60 segundos.</p>
 </body>
 </html>
+
