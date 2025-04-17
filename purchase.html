@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8" />
   <title>Processando compra...</title>
-  <meta http-equiv="refresh" content="1;URL=https://SEU-CONTEUDO.com/acesso" />
 
   <!-- Script principal da UTMFY -->
   <script
@@ -15,7 +14,6 @@
   ></script>
 
   <!-- Pixel com evento personalizado -->
-  
   <script>
     window.pixelId = "680173c0335d559b6170dd09";
     window.customUtmifyEvent = "Purchase"; // <- Evento de conversão
@@ -24,9 +22,15 @@
     a.setAttribute("defer", "");
     a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
     document.head.appendChild(a);
+
+    // Redireciona após 60 segundos
+    setTimeout(function () {
+      window.location.href = "https://SEU-CONTEUDO.com/acesso";
+    }, 60000); // 60.000 ms = 60 segundos
   </script>
 
 </head>
 <body>
+  <p>Processando sua compra... aguarde 60 segundos.</p>
 </body>
 </html>
